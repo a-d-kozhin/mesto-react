@@ -1,0 +1,16 @@
+.element__image {
+  width: 282px;
+  height: 282px;
+  object-fit: cover;
+}
+
+.element__image:hover {
+  opacity: .8;
+}
+
+/* Для Хрома, Я.Браузера и Мозиллы: */
+.element__image:before {
+  display: block;
+  padding: 20px;
+  content: "К сожалению, изображение не загрузилось 😔";
+}
