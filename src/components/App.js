@@ -31,6 +31,7 @@ function App() {
     setPopupClosed(true);
   }
 
+
   return (
     <body className="project">
       <div className="page">

@@ -1,7 +1,8 @@
 .element__image {
   width: 282px;
   height: 282px;
-  object-fit: cover;
+  background-position: center center;
+  background-size: cover;
 }
 
 .element__image:hover {
@@ -12,5 +13,4 @@
 .element__image:before {
   display: block;
   padding: 20px;
-  content: "К сожалению, изображение не загрузилось 😔";
 }
