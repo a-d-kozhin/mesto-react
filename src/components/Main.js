@@ -1,6 +1,7 @@
 import React from 'react';
 import { api } from '../utils/api.js';
 import editAvatar from '../images/edit-avatar.svg';
+import Card from './Card.js';
 
 function Main(props) {
   const [userName, setUserName] = React.useState();
@@ -38,18 +39,8 @@ function Main(props) {
       </section>
 
       <ul className="elements">
-        {cards.map((card, id) => (
-          <li className="element" key={card._id}>
-            <button type="button" className="button element__remove-button"></button>
-            <div style={{ backgroundImage: `url(${card.link})` }} className="element__image" alt={card.name}></div>
-            <div className="element__wrapper_horizontal">
-              <h2 className="element__title">{`${card.name}`}</h2>
-              <div className="element__wrapper_vertical">
-                <button type="button" className="button element__like-button"></button>
-                <p className="element__likes-count">{`${card.likes.length}`}</p>
-              </div>
-            </div>
-          </li>
+        {cards.map((cardElement) => (
+          <Card card={cardElement} onCardClick={props.onCardClick}></Card>
         ))}
       </ul>
 

@@ -9,6 +9,7 @@ function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
+  const [selectedCard, setSelectedCard] = React.useState();
 
   function handleEditAvatarClick() {
     setEditAvatarPopupOpen(true);
@@ -22,18 +23,23 @@ function App() {
     setAddPlacePopupOpen(true);
   }
 
+  function handleCardClick(card) {
+    setSelectedCard(card);
+  }
+
   function closeAllPopups() {
     document.querySelector('.popup_opened').classList.remove('popup_opened');
     setEditAvatarPopupOpen(false);
     setEditProfilePopupOpen(false);
     setAddPlacePopupOpen(false);
+    setSelectedCard(null);
   }
 
   return (
-    <body className="project">
+    <div className="project">
       <div className="page">
         <Header></Header>
-        <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick}></Main>
+        <Main onCardClick={handleCardClick} onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick}></Main>
         <Footer></Footer>
         <PopupWithForm title='Редактировать профиль' name='profile' isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
           <input className="popup__input popup__input_type_name" type="text" placeholder="Имя" name="name" required
@@ -66,10 +72,10 @@ function App() {
           <button type="button" className="popup__submit-button popup-confirm__button">Да</button>
         </PopupWithForm>
 
-        <ImagePopup></ImagePopup>
+        <ImagePopup card={selectedCard} onClose={closeAllPopups}></ImagePopup>
 
       </div>
-    </body>
+    </div>
   );
 }
 

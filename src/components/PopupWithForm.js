@@ -4,7 +4,7 @@ function PopupWithForm({name, title, children, isOpen, onClose}) {
   return (
     <>
       <section className={`popup popup-${name} ${isOpen ? 'popup_opened' : ''} `}>
-        <div className="popup__overlay popup-profile__overlay"></div>
+        <div className="popup__overlay popup-profile__overlay" onClick={onClose}></div>
         <form className={`popup__container popup__form popup__form_type_${name}`} name="edit-profile" action="#" method="post"
           noValidate>
           <h3 className="popup__title">{title}</h3>
