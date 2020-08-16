@@ -1,4 +1,4 @@
-import { obj, config } from "../utils/utils.js";
+import { config } from "../utils/utils.js";
 // класс взаимодействия с сервером
 
 export class Api {

@@ -5,7 +5,7 @@ function Card({card, onCardClick}) {
     onCardClick(card);
   }
   return (
-    <li className="element" key={card._id}>
+    <li className="element">
       <button type="button" className="button element__remove-button"></button>
       <div style={{ backgroundImage: `url(${card.link})` }} className="element__image" alt={card.name} onClick={handleClick}></div>
       <div className="element__wrapper_horizontal">

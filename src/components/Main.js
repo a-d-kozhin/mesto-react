@@ -25,7 +25,7 @@ function Main(props) {
 
         <div>
           <button type="button" className="profile__avatar-button" onClick={props.onEditAvatar}>
-            <img className="profile__avatar-edit-icon" src={editAvatar}/>
+            <img className="profile__avatar-edit-icon" src={editAvatar} alt=""/>
             <div style={{ backgroundImage: `url(${userAvatar})` }} alt="Аватар профиля" className="profile__avatar"></div>
           </button>
         </div>
@@ -40,7 +40,7 @@ function Main(props) {
 
       <ul className="elements">
         {cards.map((cardElement) => (
-          <Card card={cardElement} onCardClick={props.onCardClick}></Card>
+          <Card card={cardElement} onCardClick={props.onCardClick} key={cardElement._id}></Card>
         ))}
       </ul>
 
