@@ -1,6 +1,8 @@
 {
   "name": "mesto-react",
-  "version": "0.1.0",
+  "description": "learning project",
+  "author": "Alexander Kozhin",
+  "version": "0.0.2",
   "private": true,
   "homepage": "https://a-d-kozhin.github.io/mesto-react/",
   "dependencies": {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ImagePopup({card, onClose}) {
+function ImagePopup({ card, onClose }) {
   let name = '';
   let link = '';
   if (card) {
@@ -13,7 +13,7 @@ function ImagePopup({card, onClose}) {
       <div className="popup-image__wrapper">
         <div style={{ backgroundImage: `url(${link})` }} alt={name} className="popup-image__image"></div>
         <p className="popup-image__caption">{name}</p>
-        <button type="button" className="button popup__close-button popup-image__close-button" onClick={onClose}></button>
+        <button type="button" className="button popup__close-button popup-image__close-button" onClick={onClose} />
       </div>
     </section>
   );

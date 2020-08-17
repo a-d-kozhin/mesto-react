@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PopupWithForm({name, title, children, isOpen, onClose}) {
+function PopupWithForm({ name, title, children, isOpen, onClose }) {
   return (
     <>
       <section className={`popup popup-${name} ${isOpen ? 'popup_opened' : ''} `}>
@@ -9,7 +9,7 @@ function PopupWithForm({name, title, children, isOpen, onClose}) {
           noValidate>
           <h3 className="popup__title">{title}</h3>
           {children}
-          <button type="button" className="button popup__close-button popup-profile__close-button" onClick={onClose}></button>
+          <button type="button" className="button popup__close-button popup-profile__close-button" onClick={onClose} />
         </form>
       </section>
     </>
