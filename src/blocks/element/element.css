@@ -6,6 +6,8 @@
 @import url(../element/__like-button/element__like-button_active.css);
 @import url(../element/__remove-button/element__remove-button.css);
 @import url(../element/__likes-count/element__likes-count.css);
+@import url(../element/__remove-button/element__remove-button_hidden.css);
+@import url(../element/__remove-button/element__remove-button_visible.css);
 
 .element {
   border-radius: 10px;
