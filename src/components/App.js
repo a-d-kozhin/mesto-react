@@ -5,6 +5,7 @@ import Footer from './Footer.js';
 import PopupWithForm from './PopupWithForm.js';
 import EditProfilePopup from './EditProfilePopup.js';
 import EditAvatarPopup from './EditAvatarPopup.js'
+import AddPlacePopup from './AddPlacePopup.js';
 import ImagePopup from './ImagePopup.js';
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js'
 import { api } from '../utils/api.js';
@@ -53,6 +54,19 @@ function App() {
       .then(() => closeAllPopups())
   }
 
+  function handleCardDelete(cardToDelete) {
+    api.removeCard(cardToDelete._id)
+      .then(() => {
+        setCards(cards.filter((card) => cardToDelete._id !== card._id))
+      })
+  }
+
+  function handleAddPlace(obj) {
+    api.sendElement(obj)
+      .then((newCard) => setCards([...cards, newCard]))
+      .then(() => closeAllPopups())
+  }
+
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
 
@@ -72,11 +86,6 @@ function App() {
     }
   }
 
-  function handleCardDelete(card) {
-    api.removeCard(card._id);
-    // TODO: filter and change state
-  }
-
   function closeAllPopups() {
     if (document.querySelector('.popup_opened')) {
       document.querySelector('.popup_opened').classList.remove('popup_opened');
@@ -92,6 +101,7 @@ function App() {
       <div className="project">
         <div className="page">
           <Header></Header>
+
           <Main
             onCardClick={handleCardClick}
             onEditProfile={handleEditProfileClick}
@@ -102,53 +112,22 @@ function App() {
             onCardDelete={handleCardDelete}
           >
           </Main>
+
           <Footer></Footer>
+          
           <EditProfilePopup
             isOpen={isEditProfilePopupOpen}
             onClose={closeAllPopups}
             onUpdateUser={handleUpdateUser}
           >
           </EditProfilePopup>
-          <PopupWithForm
-            title='Новое место'
-            name='element'
+
+          <AddPlacePopup
             isOpen={isAddPlacePopupOpen}
             onClose={closeAllPopups}
+            onAddPlace={handleAddPlace}
           >
-            <input
-              className="popup__input popup__input_type_title"
-              type="text"
-              placeholder="Название"
-              name="title"
-              required
-              id="title-input"
-              minLength="2"
-              maxLength="30"
-            />
-            <span
-              id="title-input-error"
-              className="popup__error"
-            >Текст ошибки</span
-            >
-            <input
-              className="popup__input popup__input_type_url"
-              type="url"
-              placeholder="Ссылка на картинку"
-              id="url-input"
-              name="url"
-              required
-            />
-            <span
-              id="url-input-error"
-              className="popup__error"
-            >Текст ошибки</span
-            >
-            <button
-              type="submit"
-              className="popup__submit-button popup-element__submit_button"
-            >Сохранить</button
-            >
-          </PopupWithForm>
+          </AddPlacePopup>
 
           <EditAvatarPopup
             isOpen={isEditAvatarPopupOpen}
@@ -170,7 +149,8 @@ function App() {
           <ImagePopup
             card={selectedCard}
             onClose={closeAllPopups}
-          ></ImagePopup>
+          >
+          </ImagePopup>
 
         </div>
       </div>
