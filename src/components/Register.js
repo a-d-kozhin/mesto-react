@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Register({ onRegister }) {
-  const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -23,8 +22,8 @@ function Register({ onRegister }) {
     <div className="auth">
       <h2 className="auth__header">Регистрация</h2>
       <form className="auth__form auth__form_type_register" onSubmit={handleSubmit}>
-        <input className="auth__input" id="email"  name="email" type="email" placeholder="Email" value={email} onChange={(evt) => setEmail(evt.target.value)}/>
-        <input className="auth__input" id="password"  name="password" type="password" placeholder="Пароль" value={password} onChange={(evt) => setPassword(evt.target.value)}/>
+        <input className="auth__input" id="email" name="email" type="email" placeholder="Email" value={email} onChange={(evt) => setEmail(evt.target.value)} />
+        <input className="auth__input" id="password" name="password" type="password" placeholder="Пароль" value={password} onChange={(evt) => setPassword(evt.target.value)} />
         <button className="auth__submit" type="submit">Зарегистрироваться</button>
       </form>
       <Link to="./sign-in" className="button auth__link">Уже зарегистрированы? Войти</Link>

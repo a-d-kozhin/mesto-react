@@ -13,7 +13,7 @@ import Login from './Login.js';
 import Register from './Register.js';
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js'
 import { api } from '../utils/api.js';
-import { Route, Switch, Redirect, useHistory, Link } from 'react-router-dom';
+import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
 import * as auth from '../auth.js';
 
 function App() {
