@@ -1,0 +1,8 @@
+@import url(../navbar/__button/navbar__button.css);
+@import url(../navbar/__button/_type/navbar__button_type_logout.css);
+@import url(../navbar/__email/navbar__email.css);
+
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+}

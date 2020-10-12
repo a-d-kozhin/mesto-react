@@ -1,0 +1,13 @@
+.popup-info__container {
+  min-height: 280px;
+  min-width: 308px;
+  padding: 50px 18px;
+}
+
+@media (min-width: 582px) {
+  .popup-info__container {
+		padding: 60px 36px;
+    min-width: 430px;
+    min-height: 330px;
+	}
+}

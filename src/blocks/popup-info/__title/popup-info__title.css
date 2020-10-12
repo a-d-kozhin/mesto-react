@@ -1,0 +1,10 @@
+.popup-info__title {
+  text-align: center;
+  margin: 40px 0 0 0;
+}
+
+@media (min-width: 582px) {
+  .popup-info__title {
+    margin: 32px 0 0 0;
+}
+}
